@@ -14,7 +14,7 @@ import java.util.Date;
 public abstract class Person {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+   private String name;
     private Date birthDay;
 
 }

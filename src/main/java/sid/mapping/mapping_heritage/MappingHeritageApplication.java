@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import sid.mapping.mapping_heritage.entities.Enseignant;
 import sid.mapping.mapping_heritage.entities.Etudiant;
-import sid.mapping.mapping_heritage.repository.Personrepository;
 import sid.mapping.mapping_heritage.services.Services;
 
 import java.util.Date;
@@ -17,8 +15,8 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public class MappingHeritageApplication implements CommandLineRunner{
 
-//private Services services;
-private Personrepository personrepository;
+private Services services;
+//private Personrepository personrepository;
     public static void main(String[] args) {
         SpringApplication.run(MappingHeritageApplication.class, args);
     }
@@ -32,7 +30,7 @@ private Personrepository personrepository;
                     e.setName(et);
                     e.setNote(14);
                     e.setBirthDay(new Date());
-                    personrepository.save(e);
+                    services.addNewPerson(e);
                 });
 
         Stream.of("Placide","Landry","Joel")
@@ -47,7 +45,7 @@ private Personrepository personrepository;
                         p.setMatiere("Physiques");
                     }
                     p.setBirthDay(new Date());
-                    personrepository.save(p);
+                    services.addNewPerson(p);
                 });
 
     }

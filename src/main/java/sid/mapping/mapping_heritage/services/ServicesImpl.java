@@ -14,11 +14,6 @@ public class ServicesImpl implements Services {
     private Personrepository personrepository;
     @Override
     public Person addNewPerson(Person person) {
-         Person person1=findByUsername(person.getName());
-         if (person1.equals(person1))
-         {
-             System.out.println("Person present in database");
-         }
 
              return personrepository.save(person);
     }
